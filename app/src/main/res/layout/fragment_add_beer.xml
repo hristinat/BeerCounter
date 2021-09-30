@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.beercounter.addbeer.AddBeerViewModel" />
+        <variable
+            name="beerType"
+            type="com.example.beercounter.database.BeerType" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/beer_330"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:text="@string/third"
+            app:layout_constraintEnd_toStartOf="@+id/beer_500"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="spread"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:onClick="@{() -> viewModel.onButtonClicked(330)}"/>
+
+        <Button
+            android:id="@+id/beer_500"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/half"
+            app:layout_constraintBottom_toBottomOf="@+id/beer_330"
+            app:layout_constraintEnd_toStartOf="@+id/beer_1l"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/beer_330"
+            app:layout_constraintTop_toTopOf="@+id/beer_330"
+            android:onClick="@{() -> viewModel.onButtonClicked(500)}"/>
+
+        <Button
+            android:id="@+id/beer_1l"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/liter"
+            app:layout_constraintBottom_toBottomOf="@+id/beer_500"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/beer_500"
+            app:layout_constraintTop_toTopOf="@+id/beer_500"
+            android:onClick="@{() -> viewModel.onButtonClicked(1000)}"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

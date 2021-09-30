@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.beercounter.home.HomeFragment"
+        android:label="HomeFragment" >
+        <action
+            android:id="@+id/action_homeFragment_to_addBeerFragment"
+            app:destination="@id/addBeerFragment" />
+        <argument
+            android:name="isBeerAdded"
+            app:argType="boolean"
+            android:defaultValue="false"/>
+    </fragment>
+    <fragment
+        android:id="@+id/addBeerFragment"
+        android:name="com.example.beercounter.addbeer.AddBeerFragment"
+        android:label="AddBeerFragment" >
+        <action
+            android:id="@+id/action_addBeerFragment_to_homeFragment"
+            app:destination="@id/homeFragment">
+            <argument
+                android:name="isBeerAdded"
+                app:argType="boolean"
+                android:defaultValue="true"/>
+        </action>
+        <argument
+            android:name="sessionId"
+            app:argType="long" />
+    </fragment>
+    <fragment
+        android:id="@+id/statisticsFragment"
+        android:name="com.example.beercounter.statistics.StatisticsFragment"
+        android:label="StatisticsFragment" >
+        <action
+            android:id="@+id/action_statistics_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/calendarFragment"
+        android:name="com.example.beercounter.calendar.CalendarFragment"
+        android:label="CalendarFragment" />
+</navigation>
